@@ -10,7 +10,6 @@ orbs:
 # Workflows
 ############
 workflows:
-  version: 2
   build-deploy:
     jobs:
       - build
