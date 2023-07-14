@@ -19,5 +19,3 @@ The application uses Python and Flask for the backend.
 ## Deployment to Heroku
 
 The application demonstrates how to deploy to Heroku from CircleCI 2.0. Please consult the [Project Walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) for documentation
-
-update
