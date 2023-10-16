@@ -1,10 +1,5 @@
 version: 2.1
 
-workflows:
-  build-deploy:
-    jobs:
-      - build
-
 jobs:
   build:
     docker:
@@ -12,7 +7,7 @@ jobs:
         environment:
           FLASK_CONFIG: testing
           TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
-      - image: circleci/postgres:9.6.5-alpine-ram
+      - image: cimg/postgres:16.0-postgis-ram
         environment:
           POSTGRES_USER: ubuntu
           POSTGRES_DB: circle_test
@@ -49,3 +44,8 @@ jobs:
           destination: tr1
       - store_test_results:
           path: test-reports/
+
+workflows:
+  build-deploy:
+    jobs:
+      - build
