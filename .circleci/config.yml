@@ -37,6 +37,7 @@ jobs:
             - 'venv'
       - run:
           command: |
+            . venv/bin/activate
             # get test files while ignoring __init__ files
             TESTFILES=$(circleci tests glob "**/tests/*.py" | sed 's/\S\+__init__.py//g')
             echo $TESTFILES | tr ' ' '\n' | sort | uniq > circleci_test_files.txt
