@@ -39,8 +39,8 @@ jobs:
           command: |
             . venv/bin/activate
             TEST_FILES=$(circleci tests glob "**/test_*.py" | circleci tests split --split-by=timings)
-            python manage.py test -o junit_family=legacy --junitxml=test-results/junit.xml $TEST_FILES
-            python manage.py test
+            python manage.py test $TEST_FILES
+            # python manage.py test -o junit_family=legacy --junitxml=test-results/junit.xml 
       - store_artifacts:
           path: test-reports/
           destination: tr1
